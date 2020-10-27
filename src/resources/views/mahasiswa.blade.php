@@ -13,26 +13,32 @@
     <div class="container">
         <h2>Form Mahasiswa</h2>
         <hr>
-        <form action="{{ route("mahasiswa.simpan") }}" method="POST">
+        <form action="{{ isset($data)
+                            ?route('mahasiswa.update',["id" => $data->id])
+                            :route('mahasiswa.simpan') }}" method="POST">
             @csrf
             <div class="form-group">
                 <label for="nim">NIM</label>
-                <input type="text" name="nim" class="form-control">
+                <input type="text" name="nim" class="form-control"
+                    value={{ isset($data)?$data->nim:"" }}>
             </div>
 
             <div class="form-group">
                 <label for="nama">Nama</label>
-                <input type="text" name="nama" class="form-control">
+                <input type="text" name="nama" class="form-control"
+                    value="{{ isset($data)?$data->nama:"" }}">
             </div>
 
             <div class="form-group">
                 <label for="alamat">Alamat</label>
-                <input type="text" name="alamat" class="form-control">
+                <input type="text" name="alamat" class="form-control"
+                    value="{{ isset($data)?$data->alamat:"" }}">
             </div>
 
             <div class="form-group">
                 <label for="telepon">Telepon</label>
-                <input type="text" name="telepon" class="form-control">
+                <input type="text" name="telepon" class="form-control"
+                    value={{ isset($data)?$data->telepon:"" }}>
             </div>
 
             <input type="submit" value="Simpan" class="btn btn-success btn-block">
@@ -45,6 +51,7 @@
                     <th>Nama</th>
                     <th>Alamat</th>
                     <th>Telepon</th>
+                    <th colspan=2>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -54,6 +61,10 @@
                         <td>{{ $item->nama }}</td>
                         <td>{{ $item->alamat }}</td>
                         <td>{{ $item->telepon }}</td>
+                        <td><a href="{{ route('mahasiswa.tampil',["id" => $item->id ]) }}"
+                            class="btn btn-warning btn-block">Rubah</a></td>
+                        <td><a href="{{ route('mahasiswa.hapus',["id" => $item->id]) }}"
+                            class="btn btn-danger btn-block">Hapus</a></td>
                     </tr>
                 @endforeach
             </tbody>
