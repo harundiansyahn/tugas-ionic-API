@@ -20,24 +20,31 @@ use \App\Http\Controllers\MatakuliahController;
 })->name('mahasiswa.index'); */
 
 
+Route::view('/', 'welcome');
 
-Route::get('/', [MahasiswaController::class,'index'])
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/mahasiswa', [MahasiswaController::class,'index'])
     ->name('mahasiswa.index');
 
-Route::get('/mahasiswa/hapus/{id}',[MahasiswaController::class,'hapus'])
-    ->name('mahasiswa.hapus');
+    Route::get('/mahasiswa/hapus/{id}',[MahasiswaController::class,'hapus'])
+        ->name('mahasiswa.hapus');
 
-Route::get('/mahasiswa/tampil/{id}',[MahasiswaController::class,'tampil'])
-    ->name('mahasiswa.tampil');
+    Route::get('/mahasiswa/tampil/{id}',[MahasiswaController::class,'tampil'])
+        ->name('mahasiswa.tampil');
 
-Route::post('/mahasiswa/simpan',[MahasiswaController::class,'simpan'])
-    ->name('mahasiswa.simpan');
+    Route::post('/mahasiswa/simpan',[MahasiswaController::class,'simpan'])
+        ->name('mahasiswa.simpan');
 
-Route::post('/mahasiswa/rubah/{id}',[MahasiswaController::class,'update'])
-    ->name('mahasiswa.update');
+    Route::post('/mahasiswa/rubah/{id}',[MahasiswaController::class,'update'])
+        ->name('mahasiswa.update');
 
 
-Route::get('/matakuliah',[MatakuliahController::class,'index'])
-    ->name('matakuliah.index');
-Route::post('/matakuliah/simpan',[MatakuliahController::class,'simpan'])
-    ->name('matakuliah.simpan');
+    Route::get('/matakuliah',[MatakuliahController::class,'index'])
+        ->name('matakuliah.index');
+    Route::post('/matakuliah/simpan',[MatakuliahController::class,'simpan'])
+        ->name('matakuliah.simpan');
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
