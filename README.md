@@ -1,23 +1,12 @@
-# Boilerplate Project Laravel dengan Docker
+# Project Sistem Informasi Absensi Mahasiswa Universitas IBBI berbasis Aplikasi Web dan Mobile
 
-[Kenapa Docker ?](https://www.docker.com/why-docker)
+## Diagram ERD
+![Diagram ERD](erd-absensiapp.png)
 
-
-## Linux Ubuntu 20.04
-``` 
-sudo apt update
-sudo apt install docker.io docker-compose -y
-```
-
-## Windows
-[Install Docker Desktop](https://www.docker.com/products/docker-desktop)
-
-
-### Menjalankan Docker
-```
-git clone https://github.com/gymie/docker-compose-laravel.git laravel
-cd laravel
-mkdir src
-docker-compose run --rm composer create-project --prefer-dist laravel/laravel .
-docker-compose up -d site
-```
+## Fitur Aplikasi Web
+* Sistem Login User
+* Input Kelas Baru
+* Input Pertemuan
+* Input Absensi
+* List Peserta
+* List Absensi
