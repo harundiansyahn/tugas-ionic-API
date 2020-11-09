@@ -2,8 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-use \App\Http\Controllers\MahasiswaController;
-use \App\Http\Controllers\MatakuliahController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,34 +13,8 @@ use \App\Http\Controllers\MatakuliahController;
 |
 */
 
-/* Route::get('/', function () {
-    return view('mahasiswa');
-})->name('mahasiswa.index'); */
-
-
-Route::view('/', 'welcome');
-
-Route::group(['middleware' => ['auth']], function () {
-    Route::get('/mahasiswa', [MahasiswaController::class,'index'])
-    ->name('mahasiswa.index');
-
-    Route::get('/mahasiswa/hapus/{id}',[MahasiswaController::class,'hapus'])
-        ->name('mahasiswa.hapus');
-
-    Route::get('/mahasiswa/tampil/{id}',[MahasiswaController::class,'tampil'])
-        ->name('mahasiswa.tampil');
-
-    Route::post('/mahasiswa/simpan',[MahasiswaController::class,'simpan'])
-        ->name('mahasiswa.simpan');
-
-    Route::post('/mahasiswa/rubah/{id}',[MahasiswaController::class,'update'])
-        ->name('mahasiswa.update');
-
-
-    Route::get('/matakuliah',[MatakuliahController::class,'index'])
-        ->name('matakuliah.index');
-    Route::post('/matakuliah/simpan',[MatakuliahController::class,'simpan'])
-        ->name('matakuliah.simpan');
+Route::get('/', function () {
+    return view('welcome');
 });
 
 Auth::routes();
