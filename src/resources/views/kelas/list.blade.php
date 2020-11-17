@@ -26,7 +26,7 @@
                 <div class="clearfix"></div>
                 <div class="card mb-2">
                     <div class="card-body">
-                        <h3><a href="">Pertemuan 1</a></h3>
+                        <h3><a href="{{ route("absensi.form") }}">Pertemuan 1</a></h3>
                         <span class="text-muted">Tanggal 01/01/2020</span>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. A, animi. Praesentium quidem labore ex dignissimos dolorum, quae quasi est molestias non neque sunt veritatis optio quod temporibus, incidunt deserunt voluptas?</p>
                     </div>
@@ -36,7 +36,7 @@
                 </div>
                 <div class="card mb-2">
                     <div class="card-body">
-                        <h3><a href="">Pertemuan 1</a></h3>
+                        <h3><a href="{{ route("absensi.form") }}">Pertemuan 1</a></h3>
                         <span class="text-muted">Tanggal 01/01/2020</span>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. A, animi. Praesentium quidem labore ex dignissimos dolorum, quae quasi est molestias non neque sunt veritatis optio quod temporibus, incidunt deserunt voluptas?</p>
                     </div>
@@ -46,7 +46,7 @@
                 </div>
                 <div class="card mb-2">
                     <div class="card-body">
-                        <h3><a href="">Pertemuan 1</a></h3>
+                        <h3><a href="{{ route("absensi.form") }}">Pertemuan 1</a></h3>
                         <span class="text-muted">Tanggal 01/01/2020</span>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. A, animi. Praesentium quidem labore ex dignissimos dolorum, quae quasi est molestias non neque sunt veritatis optio quod temporibus, incidunt deserunt voluptas?</p>
                     </div>
@@ -56,7 +56,7 @@
                 </div>
                 <div class="card mb-2">
                     <div class="card-body">
-                        <h3><a href="">Pertemuan 1</a></h3>
+                        <h3><a href="{{ route("absensi.form") }}">Pertemuan 1</a></h3>
                         <span class="text-muted">Tanggal 01/01/2020</span>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. A, animi. Praesentium quidem labore ex dignissimos dolorum, quae quasi est molestias non neque sunt veritatis optio quod temporibus, incidunt deserunt voluptas?</p>
                     </div>
@@ -76,29 +76,29 @@
                     <h2 class="text-success">Mahasiswa</h2>
                     <div>
                         <span class="text-muted">20 Mahasiswa</span>
-                        <a href="" class="btn btn-outline-success"><i class="fas fa-user-plus"></i> </a>
+                        <a href="{{ route("peserta.invite") }}" class="btn btn-outline-success"><i class="fas fa-user-plus"></i> </a>
                     </div>
                 </div>
                 <hr>
                 <ul class="list-group">
                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <a href="">Mahasiswa 1</a>
+                        <a href="{{ route("peserta.detail") }}">Mahasiswa 1</a>
                         <a href="" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus </a>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <a href="">Mahasiswa 1</a>
+                        <a href="{{ route("peserta.detail") }}">Mahasiswa 1</a>
                         <a href="" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus </a>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <a href="">Mahasiswa 1</a>
+                        <a href="{{ route("peserta.detail") }}">Mahasiswa 1</a>
                         <a href="" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus </a>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <a href="">Mahasiswa 1</a>
+                        <a href="{{ route("peserta.detail") }}">Mahasiswa 1</a>
                         <a href="" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus </a>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <a href="">Mahasiswa 1</a>
+                        <a href="{{ route("peserta.detail") }}">Mahasiswa 1</a>
                         <a href="" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus </a>
                     </li>
                 </ul>
