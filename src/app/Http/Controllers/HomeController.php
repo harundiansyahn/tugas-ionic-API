@@ -23,6 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        // $kelas = \App\Models\Kelas::all();
+
+        return view('home',["kelas" =>\App\Models\Kelas::all() ]);
+        // return view('home',["kelas" => $kelas ]);
+        // return view('home',compact("kelas"));
     }
 }

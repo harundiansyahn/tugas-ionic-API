@@ -6,62 +6,25 @@
         <div class="clearfix"></div>
 
         <div class="row">
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-header bg-success text-white">
-                        <h5><a href="{{ route("kelas.list") }}" class="text-white">TI VII P1</a></h5>
-                        <p>Online</p>
-                    </div>
-                    <div class="card-body">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi suscipit corrupti, nihil quaerat alias dolores fugit sequi qui modi cumque blanditiis provident labore! Quia, facilis tempore cumque officiis consectetur eius.
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="btn btn-danger float-right"><i class="fas fa-trash"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-header bg-success text-white">
-                        <h5><a href="{{ route("kelas.list") }}" class="text-white">TI VII P1</a></h5>
-                        <p>Online</p>
-                    </div>
-                    <div class="card-body">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi suscipit corrupti, nihil quaerat alias dolores fugit sequi qui modi cumque blanditiis provident labore! Quia, facilis tempore cumque officiis consectetur eius.
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="btn btn-danger float-right"><i class="fas fa-trash"></i></a>
+            @foreach ($kelas as $item)
+                <div class="col-md-3">
+                    <div class="card mt-2">
+                        <div class="card-header bg-success text-white">
+                            <h5><a href="{{ route("kelas.list") }}" class="text-white">{{ $item->nama }}</a></h5>
+                            <p>No Ruang {{ $item->noruang }}</p>
+                        </div>
+                        <div class="card-body text-truncate">
+                            {{ $item->matakuliah }}
+                        </div>
+                        <div class="card-footer">
+                            <a href="{{ route("kelas.hapus",["id" => $item->id]) }}" 
+                            class="btn btn-danger float-right"
+                            onclick="return confirm('Anda Yakin Hapus?')"
+                            ><i class="fas fa-trash"></i></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-header bg-success text-white">
-                        <h5><a href="{{ route("kelas.list") }}" class="text-white">TI VII P1</a></h5>
-                        <p>Online</p>
-                    </div>
-                    <div class="card-body">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi suscipit corrupti, nihil quaerat alias dolores fugit sequi qui modi cumque blanditiis provident labore! Quia, facilis tempore cumque officiis consectetur eius.
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="btn btn-danger float-right"><i class="fas fa-trash"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-header bg-success text-white">
-                        <h5><a href="{{ route("kelas.list") }}" class="text-white">TI VII P1</a></h5>
-                        <p>Online</p>
-                    </div>
-                    <div class="card-body">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi suscipit corrupti, nihil quaerat alias dolores fugit sequi qui modi cumque blanditiis provident labore! Quia, facilis tempore cumque officiis consectetur eius.
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="btn btn-danger float-right"><i class="fas fa-trash"></i></a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 @endsection
