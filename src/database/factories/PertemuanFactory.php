@@ -24,6 +24,8 @@ class PertemuanFactory extends Factory
         return [
             "kelas_id" => 1,
             "tanggal" => $this->faker->date('Y-m-d',"now"),
+            "pertemuan" => $this->faker->numberBetween(1,15),
+            "materi" => $this->faker->sentence(100),
             "kode" => $this->faker->bothify("##??##??")
         ];
     }

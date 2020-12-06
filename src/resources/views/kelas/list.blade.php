@@ -15,55 +15,29 @@
         </ul>
 
         <div class="jumbotron bg-success text-white">
-            <h1>Nama Kelas</h1>
-            <h5>No Ruang XXXX</h5>
-            <p>Kode Kelas : XXXXX</p>
+            <h1>{{ $kelas->matakuliah }} ({{ $kelas->nama }})</h1>
+            <h5>No Ruang {{ $kelas->noruang }}</h5>
+            <p>Kode Kelas : {{ $kelas->kode }}</p>
         </div>
 
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" role="tabpanel" id="pertemuan">
-                <a href="{{ route("pertemuan.form") }}" class="btn btn-outline-success float-right mb-4"><i class="fas fa-plus"></i> Buat Pertemuan</a>
+                <a href="{{ route("pertemuan.form",["kelasid" => $kelas->id]) }}" class="btn btn-outline-success float-right mb-4"><i class="fas fa-plus"></i> Buat Pertemuan</a>
                 <div class="clearfix"></div>
-                <div class="card mb-2">
-                    <div class="card-body">
-                        <h3><a href="{{ route("absensi.form") }}">Pertemuan 1</a></h3>
-                        <span class="text-muted">Tanggal 01/01/2020</span>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. A, animi. Praesentium quidem labore ex dignissimos dolorum, quae quasi est molestias non neque sunt veritatis optio quod temporibus, incidunt deserunt voluptas?</p>
+                @foreach ($kelas->pertemuan as $item)
+                    <div class="card mb-2">
+                        <div class="card-body">
+                            <h3><a href="{{ route("absensi.form") }}">Pertemuan {{ $item->pertemuan }}</a></h3>
+                            <span class="text-muted">Tanggal {{ $item->tanggal }}</span>
+                            <p>{{ $item->materi }}</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="{{ route("pertemuan.hapus",["id" => $item->id ]) }}"
+                                class="btn btn-danger float-right"
+                                onclick="return confirm('Anda Yakin Hapus?')"><i class="fas fa-trash"></i> Hapus</a>
+                        </div>
                     </div>
-                    <div class="card-footer">
-                        <a href="" class="btn btn-danger float-right"><i class="fas fa-trash"></i> Hapus</a>
-                    </div>
-                </div>
-                <div class="card mb-2">
-                    <div class="card-body">
-                        <h3><a href="{{ route("absensi.form") }}">Pertemuan 1</a></h3>
-                        <span class="text-muted">Tanggal 01/01/2020</span>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. A, animi. Praesentium quidem labore ex dignissimos dolorum, quae quasi est molestias non neque sunt veritatis optio quod temporibus, incidunt deserunt voluptas?</p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="" class="btn btn-danger float-right"><i class="fas fa-trash"></i> Hapus</a>
-                    </div>
-                </div>
-                <div class="card mb-2">
-                    <div class="card-body">
-                        <h3><a href="{{ route("absensi.form") }}">Pertemuan 1</a></h3>
-                        <span class="text-muted">Tanggal 01/01/2020</span>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. A, animi. Praesentium quidem labore ex dignissimos dolorum, quae quasi est molestias non neque sunt veritatis optio quod temporibus, incidunt deserunt voluptas?</p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="" class="btn btn-danger float-right"><i class="fas fa-trash"></i> Hapus</a>
-                    </div>
-                </div>
-                <div class="card mb-2">
-                    <div class="card-body">
-                        <h3><a href="{{ route("absensi.form") }}">Pertemuan 1</a></h3>
-                        <span class="text-muted">Tanggal 01/01/2020</span>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. A, animi. Praesentium quidem labore ex dignissimos dolorum, quae quasi est molestias non neque sunt veritatis optio quod temporibus, incidunt deserunt voluptas?</p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="" class="btn btn-danger float-right"><i class="fas fa-trash"></i> Hapus</a>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <div class="tab-pane fade" role="tabpanel" id="peserta">
                 <h2 class="text-success">Dosen</h2>

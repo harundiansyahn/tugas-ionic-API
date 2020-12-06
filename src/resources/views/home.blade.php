@@ -10,7 +10,7 @@
                 <div class="col-md-3">
                     <div class="card mt-2">
                         <div class="card-header bg-success text-white">
-                            <h5><a href="{{ route("kelas.list") }}" class="text-white">{{ $item->nama }}</a></h5>
+                            <h5><a href="{{ route("kelas.list",["id" => $item->id ]) }}" class="text-white">{{ $item->nama }}</a></h5>
                             <p>No Ruang {{ $item->noruang }}</p>
                         </div>
                         <div class="card-body text-truncate">

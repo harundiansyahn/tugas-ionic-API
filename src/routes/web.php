@@ -28,7 +28,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/kelas/form',[KelasController::class,'tampilform'])
         ->name("kelas.form");
 
-    Route::get('/kelas/list',[KelasController::class,'tampillist'])
+    Route::get('/kelas/list/{id}',[KelasController::class,'tampillist'])
         ->name("kelas.list");
 
     Route::get('/kelas/hapus/{id}',[KelasController::Class,'hapuskelas'])
@@ -37,8 +37,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/kelas/create',[KelasController::Class,'buatkelas'])
         ->name("kelas.create");
 
-    Route::get('/pertemuan/form',[PertemuanController::class,'tampilform'])
+    Route::get('/pertemuan/form/{kelasid}',[PertemuanController::class,'tampilform'])
         ->name("pertemuan.form");
+
+    Route::get('/pertemuan/hapus/{id}',[PertemuanController::class,'hapus'])
+        ->name("pertemuan.hapus");
+
+    Route::post('/pertemuan/create',[PertemuanController::class,'create'])
+        ->name("pertemuan.create");
 
     Route::get('/peserta/invite',[PesertaController::class,'tampil_form_email'])
         ->name("peserta.invite");

@@ -14,4 +14,9 @@ class Kelas extends Model
     protected $fillable = [
         "nama","matakuliah","noruang","kode","dosen_id"
     ];
+
+    public function pertemuan()
+    {
+        return $this->hasMany('App\Models\Pertemuan', 'kelas_id', 'id');
+    }
 }

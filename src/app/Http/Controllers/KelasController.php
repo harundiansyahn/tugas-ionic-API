@@ -11,8 +11,10 @@ class KelasController extends Controller
         return view("kelas.form");
     }
 
-    public function tampillist(){
-        return view("kelas.list");
+    public function tampillist($id){
+        return view("kelas.list",[
+            "kelas" => \App\Models\Kelas::find($id)
+        ]);
     }
 
     public function hapuskelas($id){

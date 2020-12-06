@@ -12,6 +12,6 @@ class Pertemuan extends Model
     protected $table = "tblpertemuan";
 
     protected $fillable = [
-        'kelas_id','tanggal','kode'
+        'kelas_id','tanggal','materi','pertemuan','kode'
     ];
 }
