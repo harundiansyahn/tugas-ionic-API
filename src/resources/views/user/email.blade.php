@@ -4,7 +4,9 @@
     <div class="container">
         <h1>Undang Mahasiswa</h1>
         <hr>
-        <form action="" method="POST">
+        <form action="{{ route("peserta.undang") }}" method="POST">
+            @csrf
+            <input type="hidden" name="kode" value={{ $kode }}>
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="text" name="email" id="" class="form-control">

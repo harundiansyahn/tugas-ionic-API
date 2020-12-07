@@ -44,4 +44,21 @@ class KelasController extends Controller
 
         return redirect()->route("home"); //mengembalikan user ke tampilan home
     }
+
+    public function hapusmahasiswa($kelasid,$mahasiswaid){
+        \App\Models\Kelas::find($kelasid)
+            ->mahasiswa()
+            ->detach($mahasiswaid);
+
+        return redirect()->back();
+    }
+
+    public function joinmahasiswa($kode){
+        \App\Models\Kelas::where("kode",$kode)
+            ->first()
+            ->mahasiswa()
+            ->attach(\Auth::user()->id);
+
+        return redirect()->route("home");
+    }
 }

@@ -14,4 +14,9 @@ class Pertemuan extends Model
     protected $fillable = [
         'kelas_id','tanggal','materi','pertemuan','kode'
     ];
+
+    public function absensi()
+    {
+        return $this->hasMany('App\Models\Absensi', 'pertemuan_id', 'id');
+    }
 }

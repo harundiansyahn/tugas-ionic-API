@@ -37,6 +37,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/kelas/create',[KelasController::Class,'buatkelas'])
         ->name("kelas.create");
 
+    Route::get('/kelas/{kelasid}/mahasiswa/{mahasiswaid}', [KelasController::class,'hapusmahasiswa'])
+        ->name('kelas.hapus.mahasiswa');
+
+    route::get('/kelas/{kode}',[KelasController::class,'joinmahasiswa'])
+        ->name('kelas.join.mahasiswa');
+
     Route::get('/pertemuan/form/{kelasid}',[PertemuanController::class,'tampilform'])
         ->name("pertemuan.form");
 
@@ -46,16 +52,22 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/pertemuan/create',[PertemuanController::class,'create'])
         ->name("pertemuan.create");
 
-    Route::get('/peserta/invite',[PesertaController::class,'tampil_form_email'])
+    Route::get('/pertemuan/{kode}',[PertemuanController::class,'absensimahasiswa'])
+        ->name("pertemuan.absensi");
+
+    Route::get('/peserta/invite/{kode}',[PesertaController::class,'tampil_form_email'])
         ->name("peserta.invite");
+
+    Route::post('/peserta/undang',[PesertaController::class,'undangmahasiswa'])
+        ->name("peserta.undang");
 
     /* Route::view('/peserta/detail','user.detail')
             ->name("peserta.detail"); */
 
-    Route::get('/peserta/detail',[PesertaController::class,'tampil_detail_peserta'])
+    Route::get('/peserta/detail/{id}',[PesertaController::class,'tampil_detail_peserta'])
         ->name("peserta.detail");
 
-    Route::get('absensi/form',[AbsensiController::class,'tampil_form_absensi'])
+    Route::get('absensi/form/{id}',[AbsensiController::class,'tampil_form_absensi'])
         ->name("absensi.form");
 });
 

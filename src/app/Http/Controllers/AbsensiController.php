@@ -8,7 +8,9 @@ class AbsensiController extends Controller
 {
     //
 
-    public function tampil_form_absensi(){
-        return view("absensi.form");
+    public function tampil_form_absensi($id){
+        return view("absensi.form",[
+            "pertemuan" => \App\Models\Pertemuan::find($id)
+        ]);
     }
 }

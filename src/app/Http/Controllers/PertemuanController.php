@@ -35,4 +35,16 @@ class PertemuanController extends Controller
 
         return redirect()->route("kelas.list",["id" => $request->kelas_id]);
     }
+
+    public function absensimahasiswa($kode){
+        \App\Models\Pertemuan::where("kode",$kode)
+            ->first()
+            ->absensi()
+            ->create([
+                "mahasiswa_id" => \Auth::user()->id,
+                "status" => "hadir"
+            ]);
+
+        return redirect()->route("home");
+    }
 }
