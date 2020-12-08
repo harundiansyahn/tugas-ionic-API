@@ -13,4 +13,12 @@ class AbsensiController extends Controller
             "pertemuan" => \App\Models\Pertemuan::find($id)
         ]);
     }
+
+    public function tampil_daftar_absensi(Request $request){
+        return view("kelas.list",[
+            "kelas" => \App\Models\Kelas::find($request->kelasid),
+            "absensi" => \App\Models\Absensi::where("pertemuan_id",$request->pertemuan)->get(),
+            "pertemuan" => $request->pertemuan
+        ]);
+    }
 }

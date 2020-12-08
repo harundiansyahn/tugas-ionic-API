@@ -25,7 +25,9 @@ class HomeController extends Controller
     {
         // $kelas = \App\Models\Kelas::all();
 
-        return view('home',["kelas" =>\App\Models\Kelas::all() ]);
+        return view('home',[
+            "kelas" =>\App\Models\Kelas::where("dosen_id",\Auth::user()->id)->get()
+        ]);
         // return view('home',["kelas" => $kelas ]);
         // return view('home',compact("kelas"));
     }

@@ -14,4 +14,9 @@ class Absensi extends Model
     protected $fillable = [
         'pertemuan_id','mahasiswa_id','status'
     ];
+
+    public function mahasiswa()
+    {
+        return $this->belongsTo('App\Models\User', 'mahasiswa_id', 'id');
+    }
 }

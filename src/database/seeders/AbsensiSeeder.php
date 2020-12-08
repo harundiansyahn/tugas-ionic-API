@@ -14,8 +14,19 @@ class AbsensiSeeder extends Seeder
     public function run()
     {
         //
-        \App\Models\Absensi::factory()
-            ->count(20)
-            ->create();
+        \DB::table("tblabsensi")->truncate();
+        for ($i=1; $i <= 15 ; $i++) {
+            \App\Models\Absensi::create([
+                "pertemuan_id" => $i,
+                "mahasiswa_id" => 2,
+                "status" => \Arr::random(["absen","hadir","izin","sakit"])
+            ]);
+
+            \App\Models\Absensi::create([
+                "pertemuan_id" => $i,
+                "mahasiswa_id" => 3,
+                "status" => \Arr::random(["absen","hadir","izin","sakit"])
+            ]);
+        }
     }
 }

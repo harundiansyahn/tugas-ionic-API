@@ -13,7 +13,9 @@ class KelasController extends Controller
 
     public function tampillist($id){
         return view("kelas.list",[
-            "kelas" => \App\Models\Kelas::find($id)
+            "kelas" => \App\Models\Kelas::find($id),
+            "pertemuan" => 1,
+            "absensi" => []
         ]);
     }
 
@@ -22,7 +24,7 @@ class KelasController extends Controller
         \App\Models\Kelas::destroy($id);
 
         // setelah berhasil hapus data kelas.. kembali ke halaman sebelumnya
-        return redirect()->back();
+        return redirect()->back()->with("info","Berhasil Hapus Kelas");
     }
 
     public function buatkelas(Request $request){
@@ -42,7 +44,7 @@ class KelasController extends Controller
             "dosen_id" => \Auth()->id() // mengambil id user yang sedang login
         ]);
 
-        return redirect()->route("home"); //mengembalikan user ke tampilan home
+        return redirect()->route("home")->with("info","Berhasil Buat Kelas"); //mengembalikan user ke tampilan home
     }
 
     public function hapusmahasiswa($kelasid,$mahasiswaid){

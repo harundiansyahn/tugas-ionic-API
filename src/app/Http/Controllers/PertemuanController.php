@@ -15,7 +15,7 @@ class PertemuanController extends Controller
     public function hapus($id){
         \App\Models\Pertemuan::destroy($id);
 
-        return redirect()->back();
+        return redirect()->back()->with("info","Berhasil Hapus Pertemuan");
     }
 
     public function create(Request $request){
@@ -33,7 +33,7 @@ class PertemuanController extends Controller
             "kode" => \Str::random(8)
         ]);
 
-        return redirect()->route("kelas.list",["id" => $request->kelas_id]);
+        return redirect()->route("kelas.list",["id" => $request->kelas_id])->with("info","Berhasil Buat Pertemuan");
     }
 
     public function absensimahasiswa($kode){
@@ -45,6 +45,6 @@ class PertemuanController extends Controller
                 "status" => "hadir"
             ]);
 
-        return redirect()->route("home");
+        return redirect()->route("home")->with("info","Berhasil Melakukan Absensi");
     }
 }

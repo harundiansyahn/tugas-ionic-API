@@ -16,12 +16,14 @@
                         <div class="card-body text-truncate">
                             {{ $item->matakuliah }}
                         </div>
-                        <div class="card-footer">
-                            <a href="{{ route("kelas.hapus",["id" => $item->id]) }}" 
-                            class="btn btn-danger float-right"
-                            onclick="return confirm('Anda Yakin Hapus?')"
-                            ><i class="fas fa-trash"></i></a>
-                        </div>
+                        @cannot('bisa-hapus', $item)
+                            <div class="card-footer">
+                                <a href="{{ route("kelas.hapus",["id" => $item->id]) }}"
+                                class="btn btn-danger float-right"
+                                onclick="return confirm('Anda Yakin Hapus?')"
+                                ><i class="fas fa-trash"></i></a>
+                            </div>
+                        @endcannot
                     </div>
                 </div>
             @endforeach

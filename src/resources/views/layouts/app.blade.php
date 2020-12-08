@@ -45,7 +45,7 @@
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
-                            
+
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
@@ -76,6 +76,13 @@
         </nav>
 
         <main class="py-4">
+            <div class="container">
+                @if (session("info"))
+                    <div class="alert alert-success">
+                        {{ session("info") }}
+                    </div>
+                @endif
+            </div>
             @yield('content')
         </main>
     </div>

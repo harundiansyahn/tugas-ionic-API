@@ -22,8 +22,6 @@ class AbsensiFactory extends Factory
     public function definition()
     {
         return [
-            "pertemuan_id" => $this->faker->numberBetween(1,20),
-            "mahasiswa_id" => 2,
             "status" => $this->faker->randomElement(['absen','hadir','izin','sakit'])
         ];
     }

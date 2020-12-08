@@ -69,6 +69,9 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('absensi/form/{id}',[AbsensiController::class,'tampil_form_absensi'])
         ->name("absensi.form");
+
+    route::post('/absensi/tampil',[AbsensiController::class,'tampil_daftar_absensi'])
+        ->name("absensi.tampil");
 });
 
 

@@ -25,5 +25,11 @@ class UserSeeder extends Seeder
             "email" => "mahasiswa@gmail.com",
             "password" => \Hash::make("mahasiswa")
         ]);
+
+        \App\Models\User::create([
+            "name" => "Mahasiswa 2",
+            "email" => "mahasiswa2@gmail.com",
+            "password" => \Hash::make("mahasiswa")
+        ]);
     }
 }
