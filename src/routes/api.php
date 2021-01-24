@@ -18,9 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// API untuk cek data email dan password yang diterima apakah terdaftar dalam tabel user
-// jika terdaftar maka kembalikan nilai is login true dan user id = id user terdaftar
-// jike tidak terdafar maka kembalikan nilai is login false dan user id kosong
 Route::post("login",function(Request $request){
     $is_login = false;
     $user_id = "";
@@ -33,27 +30,22 @@ Route::post("login",function(Request $request){
     return response()->json([
         "is_login" => $is_login,
         "user_id" => $user_id
+
     ]);
 });
 
-// Ambil data kelas yang terdaftar atas user yang sedang login berdasarkan user id
-Route::post("kelas",function(Request $request){
+Route::post("kelas", function(Request $Request){
     $kelas = \App\Models\User::find($request->user_id)->mahasiswakelas()->get();
 
-    // return response()->json([
-    //     "kelas" => $kelas
-    // ]);
-    return \App\Http\Resources\KelasResource::collection($kelas);
-});
+    return response()->json([
+    "kelas" => $kelas    
+    ]);  
+}); 
 
-// Ambil detail data absensi untuk setiap pertemuannya berdasarkan kelas id dan user id
-Route::post("kelasdetail",function(Request $request){
-    $kelasdetail = \App\Models\Pertemuan::with(["absensi" => function($query) use($request){
-        $query->where("mahasiswa_id",$request->user_id);
-    }])->where("kelas_id",$request->kelas_id)->get();
+Route::post("detailkelas", function(Request $Request){
+    $detailkelas = \App\Models\User::find($request->user_id)->kelas()->get();
 
-    // return response()->json([
-    //     "kelasdetail" => $kelasdetail
-    // ]);
-    return \App\Http\Resources\KelasDetailResource::collection($kelasdetail);
-});
+    return response()->json([
+    "detailkelas" => $detailkelas    
+    ]);  
+}); 

@@ -35,8 +35,8 @@ services:
     environment:
       MYSQL_DATABASE: dbmahasiswa
       MYSQL_USER: laravel
-      MYSQL_PASSWORD: EbtPA15yVd09
-      MYSQL_ROOT_PASSWORD: EbtPA15yVd09
+      MYSQL_PASSWORD: napraditus
+      MYSQL_ROOT_PASSWORD: napraditus
     networks:
       - laravel
 
